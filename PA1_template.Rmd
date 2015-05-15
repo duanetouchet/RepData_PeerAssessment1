@@ -108,8 +108,6 @@ Weekend vs Weekday data
 ## WE vs WD - add weekdaytype data to FixedData
 fixeddata$weekdaytype<-"weekday"
 fixeddata$weekdaytype[weekdays(fixeddata$date) %in% c("Saturday","Sunday")]<-"weekend"
-#fixeddata$weekdaytype<-factor(fixeddata$weekdaytype)
-#fixeddata$interval<-as.factor(fixeddata$interval)
 wedata<-aggregate(fixeddata$steps,by=list(fixeddata$weekdaytype,fixeddata$interval),data=fixeddata,FUN=mean)
 colnames(wedata) = c("weekdaytype","interval","avgsteps")
 

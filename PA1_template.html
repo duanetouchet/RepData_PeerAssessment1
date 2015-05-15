@@ -316,8 +316,6 @@ median(fspd,na.rm=TRUE)
 <pre><code class="r">## WE vs WD - add weekdaytype data to FixedData
 fixeddata$weekdaytype&lt;-&quot;weekday&quot;
 fixeddata$weekdaytype[weekdays(fixeddata$date) %in% c(&quot;Saturday&quot;,&quot;Sunday&quot;)]&lt;-&quot;weekend&quot;
-#fixeddata$weekdaytype&lt;-factor(fixeddata$weekdaytype)
-#fixeddata$interval&lt;-as.factor(fixeddata$interval)
 wedata&lt;-aggregate(fixeddata$steps,by=list(fixeddata$weekdaytype,fixeddata$interval),data=fixeddata,FUN=mean)
 colnames(wedata) = c(&quot;weekdaytype&quot;,&quot;interval&quot;,&quot;avgsteps&quot;)
 
